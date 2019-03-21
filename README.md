@@ -1,5 +1,5 @@
 # openssl
-编译成.h,.lib,.dll文件<br>
+### 编译成.h,.lib,.dll文件<br>
 下载openssl-1.0.2r，在readme中找到对应平台的说明文件并打开，<br>
 我电脑是win10，64位，所以打开的是INSTALL.W64，其中安装步骤如下：<br>
 \> perl Configure VC-WIN64A<br>
@@ -31,3 +31,7 @@ openssl需要的h文件是ssl.h,需要的lib文件和dll文件是libeay32和ssle
 6.误操作之后在openssl文件夹内有垃圾文件干扰<br>
 <br>
 最后很重要的一点，欲速则不达，耐心一点，我尝试了一天，baidu了各种各种，最后静下心来总结，才完成这一步<br>
+
+### 使用<br>
+使用SSL_read读取数据时，即使参数的缓存足够大，SSL_read也可能不会等到缓存填满时才返回<br>
+假设缓存是1024个字节，SSL_read返回值可能在0<return<=1024之间，后续可能还有数据，响应注意<br>
